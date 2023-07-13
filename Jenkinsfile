@@ -1,15 +1,24 @@
-pipeline{
-  agent any
-  stages{
-    stage("make directory"){
-      steps{
-        sh "mkdir ~/jenkins-tutorial-test || true"
-      }
+pipeline {
+    agent any
+    stages {
+        stage('Pipeline stage Build'){
+            steps{
+                sh "touch build.sh"
+                sh 'echo "stage: Build" > build.sh'
+                sh "chmod +x build.sh"
+                sh "./build.sh"
+            }
+        }
+        stage('Pipeline stage Test'){
+            steps{
+                sh "echo stage: Test"
+            }
+        }
+        stage('Pipeline stage Deploy'){
+            steps{
+                sh "echo stage: Deploy"
+            }
+        }
+        
     }
-    stage("make files"){
-      steps{
-        sh "touch ~/jenkins-tutorial-test/file1"
-      }
-    }
-  }
-}
+}  - problems with the script?
