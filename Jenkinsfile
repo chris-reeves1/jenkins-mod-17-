@@ -8,17 +8,6 @@ pipeline {
                 sh "chmod +x build.sh"
                 sh "./build.sh"
             }
-        }
-        stage('Pipeline stage Test'){
-            steps{
-                sh "echo stage: Test"
-            }
-        }
-        stage('Pipeline stage Deploy'){
-            steps{
-                sh "echo stage: Deploy"
-            }
-        }
-        
+        }        
     }
-}  - problems with the script?
+}
